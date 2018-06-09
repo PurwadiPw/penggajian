@@ -19,12 +19,15 @@ public class Karyawan {
     private String status;
     private int jmlAnak;
     private String gol;
+    private int hariKerja;
+    private int jamLembur;
+    private double gajiLembur;
     private double gapok;
 
     public Karyawan() {
     }
 
-    public Karyawan(String noid, String nama, String alamat, String tglLahir, String jenisKelamin, String status, int jmlAnak, String gol, double gapok) {
+    public Karyawan(String noid, String nama, String alamat, String tglLahir, String jenisKelamin, String status, int jmlAnak, String gol, int hariKerja, int jamLembur, double gajiLembur, double gapok) {
         this.noid = noid;
         this.nama = nama;
         this.alamat = alamat;
@@ -33,6 +36,9 @@ public class Karyawan {
         this.status = status;
         this.jmlAnak = jmlAnak;
         this.gol = gol;
+        this.hariKerja = hariKerja;
+        this.jamLembur = jamLembur;
+        this.gajiLembur = gajiLembur;
         this.gapok = gapok;
     }
 
@@ -104,6 +110,30 @@ public class Karyawan {
         this.tglLahir = tglLahir;
     }
 
+    public int getHariKerja() {
+        return hariKerja;
+    }
+
+    public void setHariKerja(int hariKerja) {
+        this.hariKerja = hariKerja;
+    }
+
+    public int getJamLembur() {
+        return jamLembur;
+    }
+
+    public void setJamLembur(int jamLembur) {
+        this.jamLembur = jamLembur;
+    }
+
+    public double getGajiLembur() {
+        return gajiLembur;
+    }
+
+    public void setGajiLembur(int gajiLembur) {
+        this.gajiLembur = gajiLembur;
+    }
+
     public double gajipokok() {
         if (gol.equals("A")) {
             gapok = 2000000;
@@ -113,6 +143,19 @@ public class Karyawan {
             gapok = 4000000;
         }else if (gol.equals("D")) {
             gapok = 5000000;
+        }
+        return gapok;
+    }
+
+    public double gajipokokHarian() {
+        if (gol.equals("A")) {
+            gapok = 66000;
+        } else if (gol.equals("B")) {
+            gapok = 100000;
+        }else if (gol.equals("C")) {
+            gapok = 133000;
+        }else if (gol.equals("D")) {
+            gapok = 166000;
         }
         return gapok;
     }
